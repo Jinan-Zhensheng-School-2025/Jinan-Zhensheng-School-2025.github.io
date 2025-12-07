@@ -1,0 +1,740 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>新建文章 | SDFZ OIers' Blog</title><meta name="author" content="SDFZ"><meta name="copyright" content="SDFZ"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="提交博客 - Daily Problem                                                                                  import { Octokit } from &quot;https:&#x2F;&#x2F;esm.sh&#x2F;@octokit&#x2F;rest&quot;;         window.Octokit &#x3D;">
+<meta property="og:type" content="website">
+<meta property="og:title" content="新建文章">
+<meta property="og:url" content="http://sdfz.snowflavour.cn/new/index.html">
+<meta property="og:site_name" content="SDFZ OIers&#39; Blog">
+<meta property="og:description" content="提交博客 - Daily Problem                                                                                  import { Octokit } from &quot;https:&#x2F;&#x2F;esm.sh&#x2F;@octokit&#x2F;rest&quot;;         window.Octokit &#x3D;">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://sdfz.snowflavour.cn/new/%3Cspan%20class=">
+<meta property="article:published_time" content="2025-12-05T22:15:36.000Z">
+<meta property="article:modified_time" content="2025-12-07T09:01:11.347Z">
+<meta property="article:author" content="SDFZ">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://sdfz.snowflavour.cn/new/%3Cspan%20class="><script type="application/ld+json"></script><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://sdfz.snowflavour.cn/new/index.html"><link rel="preconnect" href="//unpkg.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://unpkg.com/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://unpkg.com/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '新建文章',
+  isHighlightShrink: false,
+  isToc: false,
+  pageType: 'page'
+}</script><link rel="stylesheet" href="/css/custom.css" media="defer" onload="this.media='all'"><link rel="stylesheet" href="/css/font.css"><!-- hexo injector head_end start --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css" integrity="sha512-fHwaWebuwA7NSF5Qg/af4UeDx9XqUpYpOGgubo3yWu+b2IQR4UeQwbb42Ti7gVAjNtVoI/I9TEoYeu9omwcC6g==" crossorigin="anonymous" referrerpolicy="no-referrer" /><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/null" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">2</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">1</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="not-home-page" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">SDFZ OIers' Blog</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="page-site-info"><h1 id="site-title">新建文章</h1></div></header><main class="layout" id="content-inner"><div id="page"><div class="container" id="article-container">
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>提交博客 - Daily Problem</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    
+    <!-- EasyMDE Markdown Editor -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/easymde/dist/easymde.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/easymde/dist/easymde.min.js"></script>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- KaTeX for Math Support -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+
+    <!-- Octokit for GitHub API -->
+    <script type="module">
+        import { Octokit } from "https://esm.sh/@octokit/rest";
+        window.Octokit = Octokit;
+    </script>
+
+    <style>
+        .modal { transition: opacity 0.25s ease; }
+        body { background-color: #f3f4f6; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        .CodeMirror { border-radius: 0.375rem; border-color: #e5e7eb; }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { background: #888; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #555; }
+        
+        .tab-btn.active { border-bottom: 2px solid #2563eb; color: #1e40af; background-color: #eff6ff; }
+        .tab-btn { color: #6b7280; }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <!-- Navigation / Header -->
+    <nav class="bg-slate-900 text-white shadow-lg">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center gap-3">
+                    <i class="fa-brands fa-github text-2xl"></i>
+                    <span class="font-bold text-lg tracking-wide">Hexo Blog Submitter</span>
+                </div>
+                <div class="flex items-center gap-4">
+                    <div id="user-status" class="text-sm text-gray-300 hidden items-center gap-2">
+                        <img id="user-avatar" src="" class="w-6 h-6 rounded-full border border-gray-600">
+                        <span id="user-login"></span>
+                        <button onclick="logout()" class="text-xs text-red-400 hover:text-red-300 underline ml-2">注销</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="max-w-5xl mx-auto px-4 py-8 sm:px-6 lg:px-8">
+        
+        <!-- Token Configuration -->
+        <div class="bg-white rounded-lg shadow mb-6 overflow-hidden">
+            <div class="p-4 bg-blue-50 border-b border-blue-100 flex justify-between items-center cursor-pointer" onclick="document.getElementById('auth-section').classList.toggle('hidden')">
+                <h3 class="font-semibold text-blue-800"><i class="fa-solid fa-key mr-2"></i>GitHub 认证</h3>
+                <i class="fa-solid fa-chevron-down text-blue-800"></i>
+            </div>
+            
+            <div id="auth-section" class="p-6">
+                <div class="flex flex-col md:flex-row md:items-end gap-4">
+                    <div class="flex-1">
+                        <label class="block text-sm font-medium text-gray-700 mb-1">GitHub Personal Access Token (PAT)</label>
+                        <input type="password" id="github-token" placeholder="ghp_xxxxxxxxxxxx" class="w-full rounded-md border-gray-300 shadow-sm border p-2.5 focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition">
+                    </div>
+                    <button onclick="verifyToken()" class="bg-gray-800 hover:bg-gray-900 text-white py-2.5 px-5 rounded-md flex items-center justify-center transition whitespace-nowrap">
+                        <i class="fa-solid fa-check mr-2"></i> 验证 Token
+                    </button>
+                </div>
+                
+                <div id="token-status" class="mt-3 hidden"></div>
+                
+                <div class="mt-4 p-3 bg-amber-50 border border-amber-200 rounded text-xs text-amber-800">
+                    <p class="font-semibold mb-1"><i class="fa-solid fa-lightbulb mr-1"></i> 如何获取 Token？</p>
+                    <ol class="list-decimal list-inside space-y-1 text-amber-700">
+                        <li>打开 GitHub → <strong>Settings</strong> → <strong>Developer settings</strong> → <strong>Personal access tokens</strong> → <strong>Tokens (classic)</strong></li>
+                        <li>点击 <strong>Generate new token (classic)</strong></li>
+                        <li>勾选 <code class="bg-amber-100 px-1 rounded">repo</code> 权限（完整仓库访问）</li>
+                        <li>生成后复制 Token 并粘贴到上方输入框</li>
+                    </ol>
+                    <p class="mt-2 text-amber-600"><i class="fa-solid fa-shield-halved mr-1"></i> Token 仅保存在你的浏览器本地，不会上传到任何服务器。</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Submission Form -->
+        <div class="bg-white rounded-lg shadow-lg p-6 sm:p-8">
+            <h2 class="text-2xl font-bold mb-6 text-gray-900 border-b pb-2">撰写新文章</h2>
+            
+            <form id="blog-form" onsubmit="event.preventDefault(); showConfirmModal();">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                    
+                    <!-- Title -->
+                    <div class="col-span-1 md:col-span-2">
+                        <label for="title" class="block text-sm font-semibold text-gray-700 mb-1">文章标题 (Title)</label>
+                        <input type="text" id="title" required class="w-full rounded-md border-gray-300 border p-2.5 focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none shadow-sm" placeholder="请输入文章标题">
+                    </div>
+
+                    <!-- Filename (Link) -->
+                    <div>
+                        <label for="filename" class="block text-sm font-semibold text-gray-700 mb-1">链接名 (Filename)</label>
+                        <div class="flex items-center">
+                            <span class="inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 text-gray-500 text-sm h-[42px]">
+                                <i class="fa-regular fa-calendar-days mr-1"></i> Date-
+                            </span>
+                            <input type="text" id="filename" required pattern="[a-zA-Z0-9-_]+" title="只能包含字母、数字、连字符和下划线" class="flex-1 rounded-r-md border-gray-300 border p-2.5 h-[42px] focus:ring-2 focus:ring-blue-500 outline-none shadow-sm" placeholder="my-new-post">
+                        </div>
+                        <p class="text-xs text-gray-500 mt-1">最终文件名格式为: yy-m-d-filename.md</p>
+                    </div>
+
+                    <!-- Categories -->
+                    <div>
+                        <label for="categories" class="block text-sm font-semibold text-gray-700 mb-1">分类 (Categories)</label>
+                        <input type="text" id="categories" required class="w-full rounded-md border-gray-300 border p-2.5 focus:ring-2 focus:ring-blue-500 outline-none shadow-sm" placeholder="例如: 算法竞赛">
+                    </div>
+
+                    <!-- Tags -->
+                    <div class="col-span-1 md:col-span-2">
+                        <label for="tags" class="block text-sm font-semibold text-gray-700 mb-1">标签 (Tags)</label>
+                        <input type="text" id="tags" class="w-full rounded-md border-gray-300 border p-2.5 focus:ring-2 focus:ring-blue-500 outline-none shadow-sm" placeholder="tag1, tag2, tag3 (用英文逗号隔开)">
+                    </div>
+
+                    <!-- Editor -->
+                    <div class="col-span-1 md:col-span-2">
+                        <div class="flex justify-between items-end mb-1">
+                            <label class="block text-sm font-semibold text-gray-700">正文内容 (Content)</label>
+                            <span class="text-xs text-gray-500 bg-gray-100 px-2 py-0.5 rounded">支持 LaTeX 公式 (<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>E</mi><mo>=</mo><mi>m</mi><msup><mi>c</mi><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">E=mc^2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">E</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8141em;"></span><span class="mord mathnormal">m</span><span class="mord"><span class="mord mathnormal">c</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span>)</span>
+                        </div>
+                        <textarea id="markdown-editor"></textarea>
+                    </div>
+                </div>
+
+                <div class="flex justify-end pt-4">
+                    <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-md shadow transition duration-200 flex items-center">
+                        <i class="fa-solid fa-paper-plane mr-2"></i> 提交审核 (PR)
+                    </button>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <!-- Confirmation Modal -->
+    <div id="confirm-modal" class="fixed inset-0 z-50 hidden overflow-y-auto">
+        <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+            <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" onclick="closeConfirmModal()"></div>
+            <span class="hidden sm:inline-block sm:align-middle sm:h-screen">&#8203;</span>
+            <div class="relative z-10 inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg w-full">
+                <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+                    <div class="sm:flex sm:items-start">
+                        <div class="mx-auto flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-full bg-blue-100 sm:mx-0 sm:h-10 sm:w-10">
+                            <i class="fa-solid fa-circle-question text-blue-600"></i>
+                        </div>
+                        <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left w-full">
+                            <h3 class="text-lg leading-6 font-medium text-gray-900" id="modal-title">确认提交</h3>
+                            <div class="mt-2">
+                                <p class="text-sm text-gray-500 mb-3">即将向 <strong>Daily-Problem</strong> 仓库发起 Pull Request。</p>
+                                <div class="bg-gray-50 p-3 rounded text-sm text-gray-700 space-y-1 text-left border border-gray-100">
+                                    <p><strong>分支:</strong> <span class="font-mono text-xs text-blue-600">main &rarr; new-post</span></p>
+                                    <p><strong>文件:</strong> <span id="preview-path" class="font-mono text-xs">...</span></p>
+                                    <p><strong>标题:</strong> <span id="preview-title">...</span></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
+                    <button type="button" onclick="submitToGithub()" class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-blue-600 text-base font-medium text-white hover:bg-blue-700 sm:ml-3 sm:w-auto sm:text-sm">
+                        确认提交
+                    </button>
+                    <button type="button" onclick="closeConfirmModal()" class="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm">
+                        取消
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading Modal -->
+    <div id="loading-modal" class="fixed inset-0 z-[60] hidden flex items-center justify-center">
+        <div class="absolute inset-0 bg-gray-900 bg-opacity-50"></div>
+        <div class="bg-white rounded-lg p-6 shadow-xl z-10 flex flex-col items-center">
+            <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mb-4"></div>
+            <p class="text-gray-700 font-medium" id="loading-text">正在处理...</p>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div id="success-modal" class="fixed inset-0 z-[60] hidden flex items-center justify-center px-4">
+        <div class="absolute inset-0 bg-gray-900 bg-opacity-60"></div>
+        <div class="bg-white rounded-lg p-6 shadow-xl z-10 max-w-md w-full text-center">
+            <div class="mx-auto flex items-center justify-center h-16 w-16 rounded-full bg-green-100 mb-4">
+                <i class="fa-solid fa-check text-green-600 text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-2">提交成功!</h3>
+            <p class="text-gray-600 mb-6">Pull Request 已成功创建。</p>
+            <a id="pr-link" href="#" target="_blank" class="block w-full bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-4 rounded-md transition mb-3">
+                查看 Pull Request <i class="fa-solid fa-external-link-alt ml-1"></i>
+            </a>
+            <button onclick="location.reload()" class="block w-full bg-white border border-gray-300 text-gray-700 font-bold py-2 px-4 rounded-md hover:bg-gray-50">
+                写下一篇
+            </button>
+        </div>
+    </div>
+
+    <!-- Error Modal -->
+    <div id="error-modal" class="fixed inset-0 z-[60] hidden flex items-center justify-center px-4">
+        <div class="absolute inset-0 bg-gray-900 bg-opacity-60" onclick="document.getElementById('error-modal').classList.add('hidden')"></div>
+        <div class="bg-white rounded-lg p-6 shadow-xl z-10 max-w-md w-full">
+            <div class="flex items-center mb-4 text-red-600">
+                <i class="fa-solid fa-circle-exclamation text-2xl mr-3"></i>
+                <h3 class="text-xl font-bold">发生错误</h3>
+            </div>
+            <p id="error-message" class="text-gray-700 mb-6 break-words font-mono text-sm bg-red-50 p-3 rounded"></p>
+            <button onclick="document.getElementById('error-modal').classList.add('hidden')" class="w-full bg-gray-800 hover:bg-gray-900 text-white font-bold py-2 px-4 rounded-md">
+                关闭
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // Config constants
+        const OWNER = 'Jinan-Zhensheng-School-2025';
+        const REPO = 'Daily-Problem';
+        const TARGET_PATH = 'hexo/source/_posts';
+        
+        // LocalStorage Keys
+        const KEY_TOKEN = 'github_blog_token';
+
+        // Initialize EasyMDE
+        const easyMDE = new EasyMDE({ 
+            element: document.getElementById('markdown-editor'),
+            spellChecker: false,
+            autosave: { enabled: true, uniqueId: "hexo_blog_draft", delay: 1000 },
+            status: ["lines", "words", "cursor"],
+            maxHeight: "400px",
+            previewRender: function(plainText) {
+                // 1. Render Markdown to HTML
+                let html = this.parent.markdown(plainText);
+                
+                // 2. Render Math (KaTeX)
+                // Replace block math <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi></mrow><annotation encoding="application/x-tex">...</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.1056em;"></span><span class="mord">...</span></span></span></span>
+                html = html.replace(/\$\$([\s\S]+?)\$\$/g, function(match, tex) {
+                    try {
+                        return katex.renderToString(tex, { displayMode: true, throwOnError: false });
+                    } catch (e) { return match; }
+                });
+                
+                // Replace inline math <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi></mrow><annotation encoding="application/x-tex">...</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.1056em;"></span><span class="mord">...</span></span></span></span>
+                html = html.replace(/\$([^\$\n]+?)\$/g, function(match, tex) {
+                    try {
+                        return katex.renderToString(tex, { displayMode: false, throwOnError: false });
+                    } catch (e) { return match; }
+                });
+                
+                return html;
+            }
+        });
+
+        // -------------------------
+        // Auth & Initialization Logic
+        // -------------------------
+        
+        let payload = {};
+
+        function init() {
+            // Restore saved token
+            const savedToken = localStorage.getItem(KEY_TOKEN);
+            if (savedToken) {
+                document.getElementById('github-token').value = savedToken;
+                // Auto verify on load
+                verifyToken(true);
+            }
+        }
+
+        async function verifyToken(silent = false) {
+            const token = document.getElementById('github-token').value.trim();
+            const statusEl = document.getElementById('token-status');
+            
+            if (!token) {
+                if (!silent) {
+                    statusEl.innerHTML = '<div class="text-red-600 text-sm"><i class="fa-solid fa-xmark mr-1"></i> 请输入 Token</div>';
+                    statusEl.classList.remove('hidden');
+                }
+                return;
+            }
+
+            if (!silent) {
+                statusEl.innerHTML = '<div class="text-blue-600 text-sm"><i class="fa-solid fa-spinner fa-spin mr-1"></i> 正在验证...</div>';
+                statusEl.classList.remove('hidden');
+            }
+
+            try {
+                const octokit = new window.Octokit({ auth: token });
+                const { data: user } = await octokit.request("GET /user");
+                
+                // Save token
+                localStorage.setItem(KEY_TOKEN, token);
+                
+                // Update header UI
+                document.getElementById('user-login').textContent = user.login;
+                document.getElementById('user-avatar').src = user.avatar_url;
+                document.getElementById('user-status').classList.remove('hidden');
+                document.getElementById('user-status').classList.add('flex');
+                
+                // Update status
+                statusEl.innerHTML = `<div class="text-green-600 text-sm flex items-center gap-2">
+                    <i class="fa-solid fa-check-circle"></i> 
+                    已验证：<img src="<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mi>u</mi><mi>s</mi><mi>e</mi><mi>r</mi><mi mathvariant="normal">.</mi><mi>a</mi><mi>v</mi><mi>a</mi><mi>t</mi><mi>a</mi><msub><mi>r</mi><mi>u</mi></msub><mi>r</mi><mi>l</mi></mrow><mi mathvariant="normal">&quot;</mi><mi>c</mi><mi>l</mi><mi>a</mi><mi>s</mi><mi>s</mi><mo>=</mo><mi mathvariant="normal">&quot;</mi><mi>w</mi><mo>−</mo><mn>5</mn><mi>h</mi><mo>−</mo><mn>5</mn><mi>r</mi><mi>o</mi><mi>u</mi><mi>n</mi><mi>d</mi><mi>e</mi><mi>d</mi><mo>−</mo><mi>f</mi><mi>u</mi><mi>l</mi><mi>l</mi><mi>i</mi><mi>n</mi><mi>l</mi><mi>i</mi><mi>n</mi><mi>e</mi><mi mathvariant="normal">&quot;</mi><mo>&gt;</mo><mo>&lt;</mo><mi>s</mi><mi>t</mi><mi>r</mi><mi>o</mi><mi>n</mi><mi>g</mi><mo>&gt;</mo></mrow><annotation encoding="application/x-tex">{user.avatar_url}&quot; class=&quot;w-5 h-5 rounded-full inline&quot;&gt; &lt;strong&gt;</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8444em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">u</span><span class="mord mathnormal" style="margin-right:0.02778em;">ser</span><span class="mord">.</span><span class="mord mathnormal">a</span><span class="mord mathnormal" style="margin-right:0.03588em;">v</span><span class="mord mathnormal">a</span><span class="mord mathnormal">t</span><span class="mord mathnormal">a</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:-0.0278em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">u</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mord mathnormal" style="margin-right:0.01968em;">l</span></span><span class="mord">&quot;</span><span class="mord mathnormal">c</span><span class="mord mathnormal" style="margin-right:0.01968em;">l</span><span class="mord mathnormal">a</span><span class="mord mathnormal">ss</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.7778em;vertical-align:-0.0833em;"></span><span class="mord">&quot;</span><span class="mord mathnormal" style="margin-right:0.02691em;">w</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.7778em;vertical-align:-0.0833em;"></span><span class="mord">5</span><span class="mord mathnormal">h</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.7778em;vertical-align:-0.0833em;"></span><span class="mord">5</span><span class="mord mathnormal">ro</span><span class="mord mathnormal">u</span><span class="mord mathnormal">n</span><span class="mord mathnormal">d</span><span class="mord mathnormal">e</span><span class="mord mathnormal">d</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mord mathnormal">u</span><span class="mord mathnormal" style="margin-right:0.01968em;">ll</span><span class="mord mathnormal">in</span><span class="mord mathnormal" style="margin-right:0.01968em;">l</span><span class="mord mathnormal">in</span><span class="mord mathnormal">e</span><span class="mord">&quot;</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">&gt;&lt;</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8095em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">s</span><span class="mord mathnormal">t</span><span class="mord mathnormal">ro</span><span class="mord mathnormal">n</span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">&gt;</span></span></span></span>{user.login}</strong>
+                </div>`;
+                statusEl.classList.remove('hidden');
+
+            } catch (e) {
+                console.warn("Token invalid", e);
+                localStorage.removeItem(KEY_TOKEN);
+                document.getElementById('user-status').classList.add('hidden');
+                
+                if (!silent) {
+                    statusEl.innerHTML = '<div class="text-red-600 text-sm"><i class="fa-solid fa-xmark mr-1"></i> Token 无效或已过期</div>';
+                    statusEl.classList.remove('hidden');
+                }
+            }
+        }
+
+        function logout() {
+            localStorage.removeItem(KEY_TOKEN);
+            document.getElementById('github-token').value = '';
+            document.getElementById('user-status').classList.add('hidden');
+            document.getElementById('token-status').classList.add('hidden');
+        }
+
+        // -------------------------
+        // Submission Logic
+        // -------------------------
+
+        function getFilenameDate() {
+            const now = new Date();
+            const yy = now.getFullYear().toString().slice(-2);
+            const m = now.getMonth() + 1;
+            const d = now.getDate();
+            return { yy, m, d };
+        }
+
+        function getFrontMatterDate() {
+            const now = new Date();
+            const pad = (num) => num.toString().padStart(2, '0');
+            return `${now.getFullYear()}-${pad(now.getMonth() + 1)}-${pad(now.getDate())} ${pad(now.getHours())}:${pad(now.getMinutes())}:${pad(now.getSeconds())}`;
+        }
+
+        function showConfirmModal() {
+            const token = document.getElementById('github-token').value.trim();
+
+            if (!token) {
+                showError("请先填入 GitHub Token 并验证！");
+                document.getElementById('auth-section').classList.remove('hidden');
+                return;
+            }
+
+            const title = document.getElementById('title').value;
+            const filenameInput = document.getElementById('filename').value;
+            const categories = document.getElementById('categories').value;
+            const tagsInput = document.getElementById('tags').value;
+            const content = easyMDE.value();
+
+            if (!content.trim()) {
+                alert("请填写文章内容！");
+                return;
+            }
+
+            // Construct Filename
+            const { yy, m, d } = getFilenameDate();
+            const fullFilename = `${yy}-${m}-${d}-${filenameInput}.md`;
+            const fullPath = `${TARGET_PATH}/${fullFilename}`;
+
+            // Construct Front Matter
+            const fmDate = getFrontMatterDate();
+            let tagsList = "";
+            if (tagsInput.trim()) {
+                const tags = tagsInput.split(/[,，]/).map(t => t.trim()).filter(t => t);
+                if (tags.length > 0) {
+                    tagsList = "tags:\n" + tags.map(t => `- ${t}`).join('\n');
+                }
+            }
+            
+            const fileContent = `---
+title: <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>t</mi><mi>i</mi><mi>t</mi><mi>l</mi><mi>e</mi></mrow><annotation encoding="application/x-tex">{title}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord"><span class="mord mathnormal">t</span><span class="mord mathnormal">i</span><span class="mord mathnormal" style="margin-right:0.01968em;">tl</span><span class="mord mathnormal">e</span></span></span></span></span>date: <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mi>m</mi><mi>D</mi><mi>a</mi><mi>t</mi><mi>e</mi></mrow><annotation encoding="application/x-tex">{fmDate}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mord mathnormal">m</span><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="mord mathnormal">a</span><span class="mord mathnormal">t</span><span class="mord mathnormal">e</span></span></span></span></span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>t</mi><mi>a</mi><mi>g</mi><mi>s</mi><mi>L</mi><mi>i</mi><mi>s</mi><mi>t</mi></mrow><annotation encoding="application/x-tex">{tagsList}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8778em;vertical-align:-0.1944em;"></span><span class="mord"><span class="mord mathnormal">t</span><span class="mord mathnormal">a</span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mord mathnormal">s</span><span class="mord mathnormal">L</span><span class="mord mathnormal">i</span><span class="mord mathnormal">s</span><span class="mord mathnormal">t</span></span></span></span></span>categories: <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>c</mi><mi>a</mi><mi>t</mi><mi>e</mi><mi>g</mi><mi>o</mi><mi>r</mi><mi>i</mi><mi>e</mi><mi>s</mi></mrow><annotation encoding="application/x-tex">{categories}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.854em;vertical-align:-0.1944em;"></span><span class="mord"><span class="mord mathnormal">c</span><span class="mord mathnormal">a</span><span class="mord mathnormal">t</span><span class="mord mathnormal">e</span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mord mathnormal" style="margin-right:0.02778em;">or</span><span class="mord mathnormal">i</span><span class="mord mathnormal">es</span></span></span></span></span>---
+<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mi>c</mi><mi>o</mi><mi>n</mi><mi>t</mi><mi>e</mi><mi>n</mi><mi>t</mi></mrow><mi mathvariant="normal">‘</mi><mo separator="true">;</mo></mrow><annotation encoding="application/x-tex">{content}`;</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord"><span class="mord mathnormal">co</span><span class="mord mathnormal">n</span><span class="mord mathnormal">t</span><span class="mord mathnormal">e</span><span class="mord mathnormal">n</span><span class="mord mathnormal">t</span></span><span class="mord">‘</span><span class="mpunct">;</span></span></span></span>
+            payload = {
+                title: title,
+                path: fullPath,
+                content: fileContent,
+                token: token,
+                branchName: `post-${yy}${m}${d}-${filenameInput}-${Date.now().toString().slice(-4)}`
+            };
+
+            document.getElementById('preview-title').textContent = title;
+            document.getElementById('preview-path').textContent = fullPath;
+            document.getElementById('confirm-modal').classList.remove('hidden');
+        }
+
+        function closeConfirmModal() {
+            document.getElementById('confirm-modal').classList.add('hidden');
+        }
+
+        function setLoading(isLoading, text = "处理中...") {
+            const el = document.getElementById('loading-modal');
+            if (isLoading) {
+                document.getElementById('loading-text').textContent = text;
+                el.classList.remove('hidden');
+            } else {
+                el.classList.add('hidden');
+            }
+        }
+
+        function showError(msg) {
+            document.getElementById('error-message').innerText = msg;
+            document.getElementById('error-modal').classList.remove('hidden');
+        }
+
+        async function submitToGithub() {
+            closeConfirmModal();
+            setLoading(true, "正在连接 GitHub...");
+
+            try {
+                const octokit = new window.Octokit({ auth: payload.token });
+
+                setLoading(true, "获取主干信息...");
+                const { data: refData } = await octokit.request(`GET /repos/${OWNER}/${REPO}/git/ref/heads/main`);
+                const mainSha = refData.object.sha;
+
+                setLoading(true, `创建分支 ${payload.branchName}...`);
+                await octokit.request(`POST /repos/${OWNER}/${REPO}/git/refs`, {
+                    ref: `refs/heads/${payload.branchName}`,
+                    sha: mainSha
+                });
+
+                setLoading(true, "上传文章内容...");
+                // Handle Unicode properly for Base64
+                const contentEncoded = btoa(unescape(encodeURIComponent(payload.content)));
+                
+                await octokit.request(`PUT /repos/${OWNER}/${REPO}/contents/${payload.path}`, {
+                    message: `feat: add post ${payload.title}`,
+                    content: contentEncoded,
+                    branch: payload.branchName
+                });
+
+                setLoading(true, "发起 Pull Request...");
+                const { data: prData } = await octokit.request(`POST /repos/${OWNER}/${REPO}/pulls`, {
+                    owner: OWNER,
+                    repo: REPO,
+                    title: `New Post: ${payload.title}`,
+                    body: `Submitted via Hexo Blog Submitter Web.\n\nFile: \`<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mi>p</mi><mi>a</mi><mi>y</mi><mi>l</mi><mi>o</mi><mi>a</mi><mi>d</mi><mi mathvariant="normal">.</mi><mi>p</mi><mi>a</mi><mi>t</mi><mi>h</mi></mrow><mover accent="true"><mi mathvariant="normal">‘</mi><mo>ˋ</mo></mover><mo separator="true">,</mo></mrow><annotation encoding="application/x-tex">{payload.path}\``,</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.1523em;vertical-align:-0.1944em;"></span><span class="mord"><span class="mord mathnormal">p</span><span class="mord mathnormal">a</span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mord mathnormal" style="margin-right:0.01968em;">l</span><span class="mord mathnormal">o</span><span class="mord mathnormal">a</span><span class="mord mathnormal">d</span><span class="mord">.</span><span class="mord mathnormal">p</span><span class="mord mathnormal">a</span><span class="mord mathnormal">t</span><span class="mord mathnormal">h</span></span><span class="mord accent"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.9579em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord">‘</span></span><span style="top:-3.2634em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.25em;"><span class="mord">ˋ</span></span></span></span></span></span></span><span class="mpunct">,</span></span></span></span>                    head: payload.branchName,
+                    base: 'main'
+                });
+
+                // 添加 automerge 标签
+                setLoading(true, "添加 automerge 标签...");
+                try {
+                    await octokit.request(`POST /repos/${OWNER}/${REPO}/issues/${prData.number}/labels`, {
+                        labels: ['automerge']
+                    });
+                } catch (labelError) {
+                    console.warn("无法添加标签 (可能标签不存在或权限不足):", labelError);
+                    // 不阻止成功流程，继续显示成功
+                }
+
+                setLoading(false);
+                document.getElementById('pr-link').href = prData.html_url;
+                document.getElementById('success-modal').classList.remove('hidden');
+                easyMDE.clearAutosavedValue();
+
+            } catch (error) {
+                console.error(error);
+                setLoading(false);
+                let msg = error.message;
+                if (error.status === 401) msg = "Token 无效或已过期 (401)，请重新登录。";
+                if (error.status === 404) msg = "仓库未找到或权限不足 (404)。";
+                showError("提交失败: " + msg);
+            }
+        }
+
+        // Run initialization
+        init();
+    </script>
+</body>
+</html>
+</div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="waline-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/null" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">SDFZ</div><div class="author-info-description">1</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">2</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">1</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/liyuanzhuo6811"><i class="fab fa-github"></i><span>我的 Github</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">评论的QQ功能暂时无法使用。</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025-12-7-25-12-7-test/" title="测试自动发布文章">测试自动发布文章</a><time datetime="2025-12-07T08:45:08.000Z" title="发表于 2025-12-07 16:45:08">2025-12-07</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025-12-6-self-problem/" title="2025.12.6">2025.12.6</a><time datetime="2025-12-05T22:15:36.000Z" title="发表于 2025-12-06 06:15:36">2025-12-06</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+            <i class="fas fa-folder-open"></i>
+            <span>分类</span>
+            
+          </div>
+          <ul class="card-category-list" id="aside-cat-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/test/"><span class="card-category-list-name">test</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E8%A1%A5%E8%AF%BE%E6%9C%9F%E9%97%B4%E5%88%86%E4%BA%AB%E9%A2%98%E7%9B%AE%E6%B1%87%E6%80%BB/"><span class="card-category-list-name">补课期间分享题目汇总</span><span class="card-category-list-count">1</span></a></li>
+          </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/test/" style="font-size: 1.1em; color: #999">test</a></div></div><div class="card-widget card-archives">
+    <div class="item-headline">
+      <i class="fas fa-archive"></i>
+      <span>归档</span>
+      
+    </div>
+  
+    <ul class="card-archive-list">
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/12/">
+            <span class="card-archive-list-date">
+              十二月 2025
+            </span>
+            <span class="card-archive-list-count">2</span>
+          </a>
+        </li>
+      
+    </ul>
+  </div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站信息</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">2</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总浏览量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2025-12-07T09:01:18.055Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;2025 By SDFZ</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 7.3.0</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.4.2</a></span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><a id="to_comment" href="#post-comment" title="前往评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"><script>(async () => {
+  const showKatex = () => {
+    document.querySelectorAll('#article-container .katex').forEach(el => el.classList.add('katex-show'))
+  }
+
+  if (!window.katex_js_css) {
+    window.katex_js_css = true
+    await btf.getCSS('https://unpkg.com/katex/dist/katex.min.css')
+    if (false) {
+      await btf.getScript('https://unpkg.com/katex/dist/contrib/copy-tex.min.js')
+    }
+  }
+
+  showKatex()
+})()</script><script>(() => {
+  let initFn = window.walineFn || null
+  const isShuoshuo = GLOBAL_CONFIG_SITE.pageType === 'shuoshuo'
+  const option = null
+
+  const destroyWaline = ele => ele.destroy()
+
+  const initWaline = (Fn, el = document, path = window.location.pathname) => {
+    const waline = Fn({
+      el: el.querySelector('#waline-wrap'),
+      serverURL: 'https://waline.snowflavour.cn/.netlify/functions/comment',
+      pageview: false,
+      dark: 'html[data-theme="dark"]',
+      comment: true,
+      ...option,
+      path: isShuoshuo ? path : (option && option.path) || path
+    })
+
+    if (isShuoshuo) {
+      window.shuoshuoComment.destroyWaline = () => {
+        destroyWaline(waline)
+        if (el.children.length) {
+          el.innerHTML = ''
+          el.classList.add('no-comment')
+        }
+      }
+    }
+  }
+
+  const loadWaline = (el, path) => {
+    if (initFn) initWaline(initFn, el, path)
+    else {
+      btf.getCSS('https://unpkg.com/@waline/client/dist/waline.css')
+        .then(() => import('https://unpkg.com/@waline/client/dist/waline.js'))
+        .then(({ init }) => {
+          initFn = init || Waline.init
+          initWaline(initFn, el, path)
+          window.walineFn = initFn
+        })
+    }
+  }
+
+  if (isShuoshuo) {
+    'Waline' === 'Waline'
+      ? window.shuoshuoComment = { loadComment: loadWaline } 
+      : window.loadOtherComment = loadWaline
+    return
+  }
+
+  if ('Waline' === 'Waline' || !false) {
+    if (false) btf.loadComment(document.getElementById('waline-wrap'),loadWaline)
+    else setTimeout(loadWaline, 0)
+  } else {
+    window.loadOtherComment = loadWaline
+  }
+})()</script></div><script src="https://code.jquery.com/jquery-3.6.0.min.js"></script><canvas id="snow"></canvas><script async src="/js/snow.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.39.0/min/vs/loader.min.js"></script><link rel="stylesheet" data-name="vs/editor/editor.main" href="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.39.0/min/vs/editor/editor.main.min.css"><script src="/js/funeditor.js"></script><script id="click-heart" src="https://unpkg.com/butterfly-extsrc/dist/click-heart.min.js" async="async" mobile="true"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
